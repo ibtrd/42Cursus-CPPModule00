@@ -6,11 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 00:35:08 by ibertran          #+#    #+#             */
-/*   Updated: 2024/07/17 21:07:13 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/08/24 21:45:11 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 
 #include "Contact.hpp"
 
@@ -56,16 +57,16 @@ void	Contact::display_row(size_t index) const
 	std::string	buffer;
 	size_t		len;
 	
-	std::cout << "\t│" << "         " << index;
+	std::cout << "\t│" << std::setw(10) << index;
 	for (int i = 0; i < 3; i++)
 	{
 		buffer = this->value[cols[i]];
 		len = buffer.length();
-		if (len > 10)
-			buffer.replace(9, len - 9, ".");
-		else if (len < 10)
-			buffer.insert(0, 10 - len, ' ');
-		std::cout << "│" << buffer;
+		if (len > 10) {
+			std::cout << "│" << buffer.replace(9, len - 9, ".");
+		} else {
+			std::cout << "│" << std::setw(10) << buffer;
+		}
 	}
 	std::cout << "│\n";
 }

@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 00:18:25 by ibertran          #+#    #+#             */
-/*   Updated: 2024/07/17 15:25:53 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/08/24 23:07:22 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int main(void)
 		std::getline(std::cin, input);
 	}
 	if (std::cin.eof())
-		std::cout << std::endl;
+		std::cout << "EXIT" << std::endl;
 }

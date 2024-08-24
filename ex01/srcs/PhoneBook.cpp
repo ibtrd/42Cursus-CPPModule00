@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 00:34:56 by ibertran          #+#    #+#             */
-/*   Updated: 2024/07/17 15:50:07 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/08/24 23:05:03 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,15 @@ void Phonebook::search(void) const
 
 	std::cout << "Select INDEX to display: ";
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+		return ;
 	index = input[0] - '0';
-	while (!std::cin.eof()
-		&& input.length() != '1'
-		&& (index < 0 || index > this->size - 1))
+	while (input.length() != 1 || index < 0 || index > this->size - 1)
 	{
-
 		std::cout << "\e[31m" <<  input << " : Invalid INDEX" << "\e[0m\n" << "Select INDEX to display: ";
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return ;
 		index = input[0] - '0';
 	}
 	if (!std::cin.eof())
